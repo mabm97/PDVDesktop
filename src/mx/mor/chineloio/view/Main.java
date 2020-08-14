@@ -21,10 +21,10 @@ import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.table.DefaultTableModel;
-import mx.marcoabm.sinv.action.Action;
-import mx.marcoabm.sinv.entity.Product;
-import mx.marcoabm.sinv.entity.Sale;
-import mx.marcoabm.sinv.utils.img.PathResources;
+//import mx.marcoabm.sinv.action.Action;
+//import mx.marcoabm.sinv.entity.Product;
+//import mx.marcoabm.sinv.entity.Sale;
+//import mx.marcoabm.sinv.utils.img.PathResources;
 
 /**
  *
@@ -34,7 +34,7 @@ public class Main extends javax.swing.JFrame {
 
     Integer lastX;
     Integer lastY;
-    Action ac = new Action();
+//    Action ac = new Action();
 
     /**
      * Creates new form main
@@ -42,11 +42,10 @@ public class Main extends javax.swing.JFrame {
     public Main() throws URISyntaxException {
         initComponents();
 
-        this.setIconImage(Toolkit.getDefaultToolkit().getImage(new PathResources().getLogo()));
-
+//        this.setIconImage(Toolkit.getDefaultToolkit().getImage(new PathResources().getLogo()));
         tabSearchSell.setVisible(false);
         jScrollPane3.setVisible(false);
-        this.styleTables();
+//        this.styleTables();
     }
 
     /**
@@ -67,7 +66,7 @@ public class Main extends javax.swing.JFrame {
         jMenuItem5 = new javax.swing.JMenuItem();
         jPopupMenu3 = new javax.swing.JPopupMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
-        jPanel1 = new javax.swing.JPanel();
+        panelMain = new javax.swing.JPanel();
         titleMain = new javax.swing.JLabel();
         titleSells = new javax.swing.JLabel();
         btnDoSell = new javax.swing.JLabel();
@@ -80,9 +79,6 @@ public class Main extends javax.swing.JFrame {
         titleConfig = new javax.swing.JLabel();
         btnSincronizeConfig = new javax.swing.JLabel();
         btnAjustConfig = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         panelDoSell = new javax.swing.JPanel();
         titleArticuloSell = new javax.swing.JLabel();
         inputSearchItemSell = new javax.swing.JTextField();
@@ -207,15 +203,15 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(246, 246, 246));
-        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.setLayout(null);
+        panelMain.setBackground(new java.awt.Color(246, 246, 246));
+        panelMain.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        panelMain.setLayout(null);
 
         titleMain.setBackground(new java.awt.Color(0, 0, 0));
         titleMain.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         titleMain.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleMain.setText("Panel de Navegación");
-        jPanel1.add(titleMain);
+        panelMain.add(titleMain);
         titleMain.setBounds(0, 0, 170, 30);
 
         titleSells.setBackground(new java.awt.Color(0, 0, 0));
@@ -223,7 +219,7 @@ public class Main extends javax.swing.JFrame {
         titleSells.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         titleSells.setText(" Ventas");
         titleSells.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        jPanel1.add(titleSells);
+        panelMain.add(titleSells);
         titleSells.setBounds(0, 50, 170, 17);
 
         btnDoSell.setBackground(new java.awt.Color(204, 204, 204));
@@ -233,7 +229,12 @@ public class Main extends javax.swing.JFrame {
         btnDoSell.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/mor/chineloio/utils/btnVender.png"))); // NOI18N
         btnDoSell.setText("Realizar Nota");
         btnDoSell.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(btnDoSell);
+        btnDoSell.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnDoSellMouseClicked(evt);
+            }
+        });
+        panelMain.add(btnDoSell);
         btnDoSell.setBounds(0, 70, 170, 35);
         btnDoSell.getAccessibleContext().setAccessibleName("");
 
@@ -244,8 +245,13 @@ public class Main extends javax.swing.JFrame {
         btnSearchSell.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/mor/chineloio/utils/btnHistorial.png"))); // NOI18N
         btnSearchSell.setText("Realizar Nota");
         btnSearchSell.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(btnSearchSell);
-        btnSearchSell.setBounds(0, 110, 170, 35);
+        btnSearchSell.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSearchSellMouseClicked(evt);
+            }
+        });
+        panelMain.add(btnSearchSell);
+        btnSearchSell.setBounds(0, 105, 170, 40);
         btnSearchSell.getAccessibleContext().setAccessibleName("");
         btnSearchSell.getAccessibleContext().setAccessibleDescription("");
 
@@ -256,7 +262,7 @@ public class Main extends javax.swing.JFrame {
         btnTestSellSell.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/mor/chineloio/utils/btnCotizacion.png"))); // NOI18N
         btnTestSellSell.setText("Realizar Nota");
         btnTestSellSell.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(btnTestSellSell);
+        panelMain.add(btnTestSellSell);
         btnTestSellSell.setBounds(0, 150, 170, 35);
         btnTestSellSell.getAccessibleContext().setAccessibleName("");
 
@@ -267,7 +273,12 @@ public class Main extends javax.swing.JFrame {
         btnCustomersSell.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/mor/chineloio/utils/btnClientes.png"))); // NOI18N
         btnCustomersSell.setText("Realizar Nota");
         btnCustomersSell.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(btnCustomersSell);
+        btnCustomersSell.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCustomersSellMouseClicked(evt);
+            }
+        });
+        panelMain.add(btnCustomersSell);
         btnCustomersSell.setBounds(0, 190, 170, 35);
         btnCustomersSell.getAccessibleContext().setAccessibleName("");
 
@@ -278,7 +289,7 @@ public class Main extends javax.swing.JFrame {
         btnDownloadsSell.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/mor/chineloio/utils/btnDescargas.png"))); // NOI18N
         btnDownloadsSell.setText("Realizar Nota");
         btnDownloadsSell.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(btnDownloadsSell);
+        panelMain.add(btnDownloadsSell);
         btnDownloadsSell.setBounds(0, 230, 170, 35);
         btnDownloadsSell.getAccessibleContext().setAccessibleName("");
 
@@ -287,7 +298,7 @@ public class Main extends javax.swing.JFrame {
         titleStock.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         titleStock.setText(" Inventario");
         titleStock.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        jPanel1.add(titleStock);
+        panelMain.add(titleStock);
         titleStock.setBounds(0, 280, 170, 17);
 
         btnProductsStock.setBackground(new java.awt.Color(204, 204, 204));
@@ -297,7 +308,12 @@ public class Main extends javax.swing.JFrame {
         btnProductsStock.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/mor/chineloio/utils/btnProductos.png"))); // NOI18N
         btnProductsStock.setText("Realizar Nota");
         btnProductsStock.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(btnProductsStock);
+        btnProductsStock.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnProductsStockMouseClicked(evt);
+            }
+        });
+        panelMain.add(btnProductsStock);
         btnProductsStock.setBounds(0, 300, 170, 35);
         btnProductsStock.getAccessibleContext().setAccessibleName("");
 
@@ -306,7 +322,7 @@ public class Main extends javax.swing.JFrame {
         titleConfig.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         titleConfig.setText("Configuración");
         titleConfig.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        jPanel1.add(titleConfig);
+        panelMain.add(titleConfig);
         titleConfig.setBounds(0, 350, 170, 17);
 
         btnSincronizeConfig.setBackground(new java.awt.Color(204, 204, 204));
@@ -316,7 +332,7 @@ public class Main extends javax.swing.JFrame {
         btnSincronizeConfig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/mor/chineloio/utils/btnSincronizar.png"))); // NOI18N
         btnSincronizeConfig.setText("Realizar Nota");
         btnSincronizeConfig.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(btnSincronizeConfig);
+        panelMain.add(btnSincronizeConfig);
         btnSincronizeConfig.setBounds(0, 370, 170, 35);
         btnSincronizeConfig.getAccessibleContext().setAccessibleName("");
 
@@ -327,36 +343,9 @@ public class Main extends javax.swing.JFrame {
         btnAjustConfig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/mor/chineloio/utils/btnAjustes.png"))); // NOI18N
         btnAjustConfig.setText("Realizar Nota");
         btnAjustConfig.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(btnAjustConfig);
+        panelMain.add(btnAjustConfig);
         btnAjustConfig.setBounds(0, 410, 170, 35);
         btnAjustConfig.getAccessibleContext().setAccessibleName("");
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/marcoabm/sinv/utils/img/ic_exit.png"))); // NOI18N
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel1MousePressed(evt);
-            }
-        });
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(812, 0, 0, 0);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/marcoabm/sinv/utils/img/ic_minimize.png"))); // NOI18N
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel2MousePressed(evt);
-            }
-        });
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(780, 0, 0, 0);
-
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mx/marcoabm/sinv/utils/img/ic_files.png"))); // NOI18N
-        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel8MousePressed(evt);
-            }
-        });
-        jPanel1.add(jLabel8);
-        jLabel8.setBounds(30, 360, 120, 120);
 
         panelDoSell.setBackground(new java.awt.Color(246, 246, 246));
         panelDoSell.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -484,7 +473,7 @@ public class Main extends javax.swing.JFrame {
         panelDoSell.add(jScrollPane2);
         jScrollPane2.setBounds(20, 310, 690, 350);
 
-        jPanel1.add(panelDoSell);
+        panelMain.add(panelDoSell);
         panelDoSell.setBounds(170, 0, 730, 680);
 
         panelSearchSell.setBackground(new java.awt.Color(246, 246, 246));
@@ -586,7 +575,7 @@ public class Main extends javax.swing.JFrame {
         panelSearchSell.add(btnExportPDFSearchSell);
         btnExportPDFSearchSell.setBounds(540, 630, 170, 35);
 
-        jPanel1.add(panelSearchSell);
+        panelMain.add(panelSearchSell);
         panelSearchSell.setBounds(170, 0, 730, 680);
 
         panelCustomer.setBackground(new java.awt.Color(246, 246, 246));
@@ -664,7 +653,7 @@ public class Main extends javax.swing.JFrame {
         panelCustomer.add(btnAddCustomer);
         btnAddCustomer.setBounds(540, 40, 170, 35);
 
-        jPanel1.add(panelCustomer);
+        panelMain.add(panelCustomer);
         panelCustomer.setBounds(170, 0, 730, 680);
 
         panelProducts.setBackground(new java.awt.Color(246, 246, 246));
@@ -741,7 +730,6 @@ public class Main extends javax.swing.JFrame {
         ));
         tabItemsSell1.setComponentPopupMenu(jPopupMenu1);
         tabItemsSell1.setRowSelectionAllowed(false);
-        tabItemsSell1.setSelectionMode();
         jScrollPane6.setViewportView(tabItemsSell1);
 
         panelProducts.add(jScrollPane6);
@@ -784,40 +772,29 @@ public class Main extends javax.swing.JFrame {
         panelProducts.add(titleCustomerSell2);
         titleCustomerSell2.setBounds(20, 310, 149, 17);
 
-        jPanel1.add(panelProducts);
+        panelMain.add(panelProducts);
         panelProducts.setBounds(170, 0, 730, 680);
 
         titleWebSite.setBackground(new java.awt.Color(0, 0, 0));
         titleWebSite.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         titleWebSite.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleWebSite.setText("www.chinelo.io");
-        jPanel1.add(titleWebSite);
+        panelMain.add(titleWebSite);
         titleWebSite.setBounds(0, 660, 170, 20);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
+            .addComponent(panelMain, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
+            .addComponent(panelMain, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jLabel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MousePressed
-        Integer msgExit = JOptionPane.showConfirmDialog(Main.this, "¿Realmente quiere salir de la aplicación?", "Advertencia", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
-        if (msgExit == JOptionPane.YES_OPTION) {
-            System.exit(0);
-        }
-    }//GEN-LAST:event_jLabel1MousePressed
-
-    private void jLabel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MousePressed
-        this.setState(this.ICONIFIED);
-    }//GEN-LAST:event_jLabel2MousePressed
 
     private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
         lastX = evt.getXOnScreen();
@@ -836,7 +813,7 @@ public class Main extends javax.swing.JFrame {
 
     private void inputSearchItemSellKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputSearchItemSellKeyReleased
         //Llenar tabla de elementos
-        tabItemCustomerSell.setModel(ac.findAllByName(inputSearchItemSell.getText().toUpperCase()));
+//        tabItemCustomerSell.setModel(ac.findAllByName(inputSearchItemSell.getText().toUpperCase()));
         tabItemCustomerSell.getColumnModel().getColumn(0).setMaxWidth(0);
         tabItemCustomerSell.getColumnModel().getColumn(0).setMinWidth(0);
         tabItemCustomerSell.getColumnModel().getColumn(0).setPreferredWidth(0);
@@ -855,128 +832,124 @@ public class Main extends javax.swing.JFrame {
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         if (tabItemCustomerSell.getSelectedRow() != -1) {
-            Product product = ac.selectSpecificProduct(tabItemCustomerSell, tabItemCustomerSell.getSelectedRow());
-            Boolean sameProduct = ac.findProudctIntoTabSale(tabItemsSell, product);
-            if (sameProduct) {
-                JOptionPane.showMessageDialog(null, "El producto ya esta en la nota", "Aviso", JOptionPane.INFORMATION_MESSAGE);
-            } else {
-                SpinnerNumberModel sModel = new SpinnerNumberModel(1, 1, 999999999, 1);
-                JSpinner spinner = new JSpinner(sModel);
-                Integer askQuantity = JOptionPane.showOptionDialog(null, spinner, "¿Cuantas piezas son?", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
-                if (askQuantity == JOptionPane.OK_OPTION) {
-                    String price = ac.priceStringToBigDecimal(product.getPrice());
-                    String importPrice = new BigDecimal(price).multiply(new BigDecimal(spinner.getValue().toString())).toPlainString();
-                    ac.addProductoTable(Integer.parseInt(spinner.getValue().toString()), product.getName(), product.getPrice(), importPrice, tabItemsSell, titleTotalValueSell);
-                }
-            }
+//            Product product = ac.selectSpecificProduct(tabItemCustomerSell, tabItemCustomerSell.getSelectedRow());
+//            Boolean sameProduct = ac.findProudctIntoTabSale(tabItemsSell, product);
+//            if (sameProduct) {
+//                JOptionPane.showMessageDialog(null, "El producto ya esta en la nota", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+//            } else {
+//                SpinnerNumberModel sModel = new SpinnerNumberModel(1, 1, 999999999, 1);
+//                JSpinner spinner = new JSpinner(sModel);
+//                Integer askQuantity = JOptionPane.showOptionDialog(null, spinner, "¿Cuantas piezas son?", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+//                if (askQuantity == JOptionPane.OK_OPTION) {
+//                    String price = ac.priceStringToBigDecimal(product.getPrice());
+//                    String importPrice = new BigDecimal(price).multiply(new BigDecimal(spinner.getValue().toString())).toPlainString();
+//                    ac.addProductoTable(Integer.parseInt(spinner.getValue().toString()), product.getName(), product.getPrice(), importPrice, tabItemsSell, titleTotalValueSell);
+//                }
+//            }
         } else {
             JOptionPane.showMessageDialog(null, "Seleccione un producto", "Aviso", JOptionPane.YES_OPTION);
         }
      }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        Product product = ac.selectSpecificProduct(tabItemCustomerSell, tabItemCustomerSell.getSelectedRow());
-        if (product.getId() != 0) {
-            jTextField1.setText(product.getName());
-            jTextField3.setText(product.getPrice());
-            jLabel16.setVisible(true);
-            jLabel20.setVisible(true);
-            jLabel18.setVisible(false);
-            jLabel19.setVisible(false);
-            jLabel19.setName(product.getId().toString());
-            jSpinner1.setVisible(false);
-
-        } else {
-            JOptionPane.showMessageDialog(null, "Seleccione un Producto", "Aviso", JOptionPane.YES_OPTION);
-        }
+//        Product product = ac.selectSpecificProduct(tabItemCustomerSell, tabItemCustomerSell.getSelectedRow());
+//        if (product.getId() != 0) {
+////            jTextField1.setText(product.getName());
+////            jTextField3.setText(product.getPrice());
+////            jLabel16.setVisible(true);
+////            jLabel20.setVisible(true);
+////            jLabel18.setVisible(false);
+////            jLabel19.setVisible(false);
+////            jLabel19.setName(product.getId().toString());
+////            jSpinner1.setVisible(false);
+//
+//        } else {
+//            JOptionPane.showMessageDialog(null, "Seleccione un Producto", "Aviso", JOptionPane.YES_OPTION);
+//        }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        Product product = ac.selectSpecificProduct(tabItemCustomerSell, tabItemCustomerSell.getSelectedRow());
-        if (product.getId() != 0) {
-            Object[] optionsRemove = {"Aceptar", "No"};
-            int caseRemove = JOptionPane.showOptionDialog(
-                    null,
-                    "¿Desea borrar el producto " + product.getName() + "?",
-                    "Advertencia",
-                    JOptionPane.YES_NO_CANCEL_OPTION,
-                    JOptionPane.PLAIN_MESSAGE,
-                    null,
-                    optionsRemove,
-                    null
-            );
-            if (caseRemove == 0) {
-                if (ac.delete(product).getId() != 0) {
-                    JOptionPane.showMessageDialog(null, "Producto borrado correctamente", "Aviso", JOptionPane.INFORMATION_MESSAGE);
-                    tabItemCustomerSell.setModel(ac.findAll());
-                    this.styleTables();
-                } else {
-                    JOptionPane.showMessageDialog(null, "Ocurrio un erro al borrar el producto", "Aviso", JOptionPane.YES_OPTION);
-                }
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Seleccione un Producto", "Aviso", JOptionPane.YES_OPTION);
-        }
+//        Product product = ac.selectSpecificProduct(tabItemCustomerSell, tabItemCustomerSell.getSelectedRow());
+//        if (product.getId() != 0) {
+//            Object[] optionsRemove = {"Aceptar", "No"};
+//            int caseRemove = JOptionPane.showOptionDialog(
+//                    null,
+//                    "¿Desea borrar el producto " + product.getName() + "?",
+//                    "Advertencia",
+//                    JOptionPane.YES_NO_CANCEL_OPTION,
+//                    JOptionPane.PLAIN_MESSAGE,
+//                    null,
+//                    optionsRemove,
+//                    null
+//            );
+//            if (caseRemove == 0) {
+//                if (ac.delete(product).getId() != 0) {
+//                    JOptionPane.showMessageDialog(null, "Producto borrado correctamente", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+//                    tabItemCustomerSell.setModel(ac.findAll());
+//                    this.styleTables();
+//                } else {
+//                    JOptionPane.showMessageDialog(null, "Ocurrio un erro al borrar el producto", "Aviso", JOptionPane.YES_OPTION);
+//                }
+//            }
+//        } else {
+//            JOptionPane.showMessageDialog(null, "Seleccione un Producto", "Aviso", JOptionPane.YES_OPTION);
+//        }
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        if (tabItemsSell.getSelectedRow() != -1) {
-            Object[] optionsRemove = {"Aceptar", "No"};
-            int caseRemove = JOptionPane.showOptionDialog(
-                    null,
-                    "¿Desea quitar "
-                    + tabItemsSell.getValueAt(tabItemsSell.getSelectedRow(), 1).toString()
-                    + " la nota?",
-                    "Advertencia",
-                    JOptionPane.YES_NO_CANCEL_OPTION,
-                    JOptionPane.PLAIN_MESSAGE,
-                    null,
-                    optionsRemove,
-                    null
-            );
-            if (caseRemove != 1) {
-                String importProduct = tabItemsSell.getValueAt(tabItemsSell.getSelectedRow(), 3).toString();
-                String total = ac.priceStringToBigDecimal(titleTotalValueSell.getText());
-                DefaultTableModel model = (DefaultTableModel) tabItemsSell.getModel();
-                model.removeRow(tabItemsSell.getSelectedRow());
-                tabItemsSell.setModel(model);
-                titleTotalValueSell.setText(new BigDecimal(total).subtract(new BigDecimal(importProduct)).setScale(2, RoundingMode.HALF_UP).toPlainString());
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Seleccione un producto de la nota", "Aviso", JOptionPane.WARNING_MESSAGE);
-        }
+//        if (tabItemsSell.getSelectedRow() != -1) {
+//            Object[] optionsRemove = {"Aceptar", "No"};
+//            int caseRemove = JOptionPane.showOptionDialog(
+//                    null,
+//                    "¿Desea quitar "
+//                    + tabItemsSell.getValueAt(tabItemsSell.getSelectedRow(), 1).toString()
+//                    + " la nota?",
+//                    "Advertencia",
+//                    JOptionPane.YES_NO_CANCEL_OPTION,
+//                    JOptionPane.PLAIN_MESSAGE,
+//                    null,
+//                    optionsRemove,
+//                    null
+//            );
+//            if (caseRemove != 1) {
+//                String importProduct = tabItemsSell.getValueAt(tabItemsSell.getSelectedRow(), 3).toString();
+//                String total = ac.priceStringToBigDecimal(titleTotalValueSell.getText());
+//                DefaultTableModel model = (DefaultTableModel) tabItemsSell.getModel();
+//                model.removeRow(tabItemsSell.getSelectedRow());
+//                tabItemsSell.setModel(model);
+//                titleTotalValueSell.setText(new BigDecimal(total).subtract(new BigDecimal(importProduct)).setScale(2, RoundingMode.HALF_UP).toPlainString());
+//            }
+//        } else {
+//            JOptionPane.showMessageDialog(null, "Seleccione un producto de la nota", "Aviso", JOptionPane.WARNING_MESSAGE);
+//        }
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        if (tabItemsSell.getSelectedRow() != -1) {
-            String priceProduct = tabItemsSell.getValueAt(tabItemsSell.getSelectedRow(), 2).toString();
-            String importProduct = tabItemsSell.getValueAt(tabItemsSell.getSelectedRow(), 3).toString();
-            String totalTemp = titleTotalValueSell.getText();
-            String totalRest = new BigDecimal(titleTotalValueSell.getText()).subtract(new BigDecimal(importProduct)).setScale(2, RoundingMode.HALF_UP).toPlainString();
-
-            SpinnerNumberModel sModel = new SpinnerNumberModel(1, 1, 999999999, 1);
-            JSpinner spinner = new JSpinner(sModel);
-            spinner.setValue(Integer.parseInt(tabItemsSell.getValueAt(tabItemsSell.getSelectedRow(), 0).toString()));
-            Integer askQuantity = JOptionPane.showOptionDialog(null, spinner, "¿Cuantas piezas son?", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
-            if (askQuantity == JOptionPane.OK_OPTION) {
-                String newImport = new BigDecimal(priceProduct).multiply(new BigDecimal(spinner.getValue().toString())).toPlainString();
-                String totalNew = new BigDecimal(totalRest).add(new BigDecimal(newImport)).toPlainString();
-                titleTotalValueSell.setText(totalNew);
-                tabItemsSell.setValueAt(spinner.getValue(), tabItemsSell.getSelectedRow(), 0);
-                tabItemsSell.setValueAt(newImport, tabItemsSell.getSelectedRow(), 3);
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Seleccione un producto de la nota", "Aviso", JOptionPane.WARNING_MESSAGE);
-        }
+//        if (tabItemsSell.getSelectedRow() != -1) {
+//            String priceProduct = tabItemsSell.getValueAt(tabItemsSell.getSelectedRow(), 2).toString();
+//            String importProduct = tabItemsSell.getValueAt(tabItemsSell.getSelectedRow(), 3).toString();
+//            String totalTemp = titleTotalValueSell.getText();
+//            String totalRest = new BigDecimal(titleTotalValueSell.getText()).subtract(new BigDecimal(importProduct)).setScale(2, RoundingMode.HALF_UP).toPlainString();
+//
+//            SpinnerNumberModel sModel = new SpinnerNumberModel(1, 1, 999999999, 1);
+//            JSpinner spinner = new JSpinner(sModel);
+//            spinner.setValue(Integer.parseInt(tabItemsSell.getValueAt(tabItemsSell.getSelectedRow(), 0).toString()));
+//            Integer askQuantity = JOptionPane.showOptionDialog(null, spinner, "¿Cuantas piezas son?", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+//            if (askQuantity == JOptionPane.OK_OPTION) {
+//                String newImport = new BigDecimal(priceProduct).multiply(new BigDecimal(spinner.getValue().toString())).toPlainString();
+//                String totalNew = new BigDecimal(totalRest).add(new BigDecimal(newImport)).toPlainString();
+//                titleTotalValueSell.setText(totalNew);
+//                tabItemsSell.setValueAt(spinner.getValue(), tabItemsSell.getSelectedRow(), 0);
+//                tabItemsSell.setValueAt(newImport, tabItemsSell.getSelectedRow(), 3);
+//            }
+//        } else {
+//            JOptionPane.showMessageDialog(null, "Seleccione un producto de la nota", "Aviso", JOptionPane.WARNING_MESSAGE);
+//        }
     }//GEN-LAST:event_jMenuItem3ActionPerformed
-
-    private void jLabel8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MousePressed
-        ac.openFileNote();
-    }//GEN-LAST:event_jLabel8MousePressed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         if (tabSearchSell.getSelectedRow() != -1) {
-            ac.buildReport(Integer.parseInt(tabSearchSell.getValueAt(tabSearchSell.getSelectedRow(), 1).toString()));
+//            ac.buildReport(Integer.parseInt(tabSearchSell.getValueAt(tabSearchSell.getSelectedRow(), 1).toString()));
         } else {
             JOptionPane.showMessageDialog(null, "Seleccione una nota a descargar", "Aviso", JOptionPane.WARNING_MESSAGE);
         }
@@ -1018,9 +991,37 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_inputSearchCustomerSell2KeyReleased
 
+    private void btnDoSellMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDoSellMouseClicked
+        panelSearchSell.setVisible(false);
+        panelCustomer.setVisible(false);
+        panelProducts.setVisible(false);
+        panelDoSell.setVisible(true);
+    }//GEN-LAST:event_btnDoSellMouseClicked
+
+    private void btnSearchSellMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchSellMouseClicked
+        panelSearchSell.setVisible(true);
+        panelCustomer.setVisible(false);
+        panelProducts.setVisible(false);
+        panelDoSell.setVisible(false);
+    }//GEN-LAST:event_btnSearchSellMouseClicked
+
+    private void btnCustomersSellMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCustomersSellMouseClicked
+        panelSearchSell.setVisible(false);
+        panelCustomer.setVisible(true);
+        panelProducts.setVisible(false);
+        panelDoSell.setVisible(false);
+    }//GEN-LAST:event_btnCustomersSellMouseClicked
+
+    private void btnProductsStockMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProductsStockMouseClicked
+        panelSearchSell.setVisible(false);
+        panelCustomer.setVisible(false);
+        panelProducts.setVisible(true);
+        panelDoSell.setVisible(false);
+    }//GEN-LAST:event_btnProductsStockMouseClicked
+
     private void styleTables() {
         //Llenar tabla de elementos
-        tabItemCustomerSell.setModel(ac.findAll());
+//        tabItemCustomerSell.setModel(ac.findAll());
         //Ocultar columna del ID, de la tabla1/jTable1/tableProducto
         tabItemCustomerSell.getColumnModel().getColumn(0).setMaxWidth(0);
         tabItemCustomerSell.getColumnModel().getColumn(0).setMinWidth(0);
@@ -1057,8 +1058,8 @@ public class Main extends javax.swing.JFrame {
         tabSearchSell.setRowSelectionAllowed(true);
         tabSearchSell.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         //Ocultar botones de modificar-cancelar
-        jLabel16.setVisible(false);
-        jLabel20.setVisible(false);
+//        jLabel16.setVisible(false);
+//        jLabel20.setVisible(false);
 
     }
 
@@ -1143,16 +1144,12 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField inputSearchItemSell;
     private javax.swing.JTextField inputSearchItemSell1;
     private javax.swing.JTextField inputSearchSell;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JPopupMenu jPopupMenu2;
     private javax.swing.JPopupMenu jPopupMenu3;
@@ -1164,6 +1161,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JPanel panelCustomer;
     private javax.swing.JPanel panelDoSell;
+    private javax.swing.JPanel panelMain;
     private javax.swing.JPanel panelProducts;
     private javax.swing.JPanel panelSearchSell;
     private javax.swing.JTable tabCustomer;

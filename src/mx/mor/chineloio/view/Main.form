@@ -133,17 +133,17 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" pref="900" max="32767" attributes="0"/>
+          <Component id="panelMain" alignment="0" pref="900" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" pref="680" max="32767" attributes="0"/>
+          <Component id="panelMain" alignment="0" pref="680" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="jPanel1">
+    <Container class="javax.swing.JPanel" name="panelMain">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="f6" green="f6" red="f6" type="rgb"/>
@@ -219,6 +219,9 @@
           <AccessibilityProperties>
             <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
           </AccessibilityProperties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnDoSellMouseClicked"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="0" y="70" width="170" height="35"/>
@@ -251,9 +254,12 @@
             <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
             <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
           </AccessibilityProperties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnSearchSellMouseClicked"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="110" width="170" height="35"/>
+              <AbsoluteConstraints x="0" y="105" width="170" height="40"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -313,6 +319,9 @@
           <AccessibilityProperties>
             <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
           </AccessibilityProperties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnCustomersSellMouseClicked"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="0" y="190" width="170" height="35"/>
@@ -393,6 +402,9 @@
           <AccessibilityProperties>
             <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
           </AccessibilityProperties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnProductsStockMouseClicked"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="0" y="300" width="170" height="35"/>
@@ -476,51 +488,6 @@
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="0" y="410" width="170" height="35"/>
-            </Constraint>
-          </Constraints>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel1">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/mx/marcoabm/sinv/utils/img/ic_exit.png"/>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel1MousePressed"/>
-          </Events>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="812" y="0" width="-1" height="-1"/>
-            </Constraint>
-          </Constraints>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel2">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/mx/marcoabm/sinv/utils/img/ic_minimize.png"/>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel2MousePressed"/>
-          </Events>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="780" y="0" width="-1" height="-1"/>
-            </Constraint>
-          </Constraints>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel8">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/mx/marcoabm/sinv/utils/img/ic_files.png"/>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel8MousePressed"/>
-          </Events>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="30" y="360" width="120" height="120"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -1380,9 +1347,6 @@
                       <ComponentRef name="jPopupMenu1"/>
                     </Property>
                     <Property name="rowSelectionAllowed" type="boolean" value="false"/>
-                    <Property name="selectionModel" type="javax.swing.ListSelectionModel" editor="org.netbeans.modules.form.editors2.JTableSelectionModelEditor">
-                      <JTableSelectionModel selectionMode="-1"/>
-                    </Property>
                     <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                       <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                     </Property>
